@@ -1,0 +1,2 @@
+# avisor
+Reloj, cronometro, temporizador.
