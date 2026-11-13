@@ -189,11 +189,11 @@ const setWheelFromDateDiff=(now,target)=>{
 /* Ajustar límites de validación según modo activo */
 const applyLimits=()=>{
   const isDate=mode==='date';
-  units.max=isDate?12:99;units.min=isDate?1:0;
-  units.max=isDate?31:99;units.min=isDate?1:0;
-  units.max=isDate?23:99;
-  units.max=isDate?59:99;
-  units.max=isDate?59:99;
+  units[1].max=isDate?12:99;units[1].min=isDate?1:0;
+  units[2].max=isDate?31:99;units[2].min=isDate?1:0;
+  units[3].max=isDate?23:99;
+  units[4].max=isDate?59:99;
+  units[5].max=isDate?59:99;
   units.forEach(u=>{u.v=Math.min(u.max,Math.max(u.min,u.v))});
   renderWheel();
 };
@@ -349,7 +349,7 @@ btn.onclick=()=>{
     },100);
   }else if(mode==='date'){
     if(!targetDate){
-      targetDate=new Date(units.v,units.v-1,units.v,units.v,units.v,units.v);
+      targetDate=new Date(units[0].v,units[1].v-1,units[2].v,units[3].v,units[4].v,units[5].v);
     }
     const updateDateCountdown=()=>{
       const now=new Date();
